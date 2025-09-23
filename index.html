@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/titleicon.png">
+    <script src="script.js"></script>
+
+
+</head>
+
+
+<body onload="showNotes()">
+
+    <div class="container">
+       
+        <div class="headline-container" id="headline">
+           <div class="newnote-container">
+                <h1>Notes</h1>
+                <div class="pin-trash">
+                    <div class="trash-container" onclick="showTrash()">
+                        <p>trash</p>
+                        <div>
+                            <img src="img/paperwaste-white.png" alt="">
+                        </div>
+                    </div>
+                    <div onclick="showInputBox()" class="pin-container">
+                        <p>new note</p>
+                        <div>
+                            <img class="pinicon"  src="img/pinicon.png" alt="">
+                        </div>
+                    </div>
+                </div>
+           </div>
+        </div>
+        <div class="trash-margintop hide" id="trashmargin">
+
+        </div>
+
+        <div onclick="putAlltoTrash()" class="moveall-container moveall-margin" id="moveall">
+            <p>move all<br>to trash</p>
+            <div>
+                <img src="img/paperwaste-white.png" alt="">
+            </div>
+        </div>
+
+        <div class="arrow-container">
+                <div onclick="backFromTrash()" class="trash-arrow hide" id="trasharrow">
+                    <img src="img/arrow.png" alt="">
+                </div>
+        </div>
+
+        <div onclick="deleteAll()" class="moveall-container hide" id="emptytrash">
+            <p>empty trash</p>
+            <div>
+                <img src="img/paperwaste-white.png" alt="">
+            </div>
+        </div>
+       
+            <div class="input-container hide" id="inputbox">
+                <textarea maxlength="110" name="Notiz" placeholder="New note..." id="text" cols="30" rows="10">
+                </textarea>    
+                <div class="save-container">
+                    <img onclick="addNote()" src="img/save.png" alt="" id="saveclick">
+                </div>
+            </div>   
+            <div class="notes-container" id="notes">
+            </div>
+    </div>
+   
+</body>
+</html>
