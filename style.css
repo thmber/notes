@@ -139,13 +139,12 @@ h2{
     width: 80px;  
     justify-content: space-between;
     cursor: pointer;
+    transition: all 225ms ease-in-out;
 }
 a{
     text-decoration: none;
     color: white;
 }
-
-
 .pin-trash{
     width: 230px;
     display: flex;

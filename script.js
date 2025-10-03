@@ -8,6 +8,7 @@ load();
 
 function showNotes(){
    clear();
+   checkIfTrashIsEmpty();
    notes.innerHTML='';
    for (let i = notesTexts.length -1; i > -1; i--) {
         notes.innerHTML +=`
@@ -19,8 +20,18 @@ function showNotes(){
         </div>
             `;
    } }
+
    function clear(){
         document.getElementById('notes').innerHTML='';
+   }
+
+   function checkIfTrashIsEmpty(){
+        if(deletedNotes.length==0){
+            document.getElementById('trash-icon-front').style.opacity = "0.25"
+        }
+        else{
+            document.getElementById('trash-icon-front').style.opacity = "1"
+        }
    }
 
    function showDeleted(){
@@ -135,6 +146,7 @@ function deleteNotefromArray(position){
         deletedBackgroundColors.push(backgroundColors[position])
         notesTexts.splice(position,1);
         backgroundColors.splice(position,1);
+        document.getElementById('trash-icon-front').style.opacity = "1"
         save();
     }
 
