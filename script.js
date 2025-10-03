@@ -75,12 +75,9 @@ function deletePerma(position){
 
 
 function showTrash(){
-    document.getElementById('inputbox').classList.add('hide');
-    document.getElementById('moveall').classList.add('hide');
-    document.getElementById('headline').classList.add('hide')
+    hide(['inputbox', 'moveall', 'headline']);
+    show(['trasharrow', 'trashmargin'])
     document.getElementById('emptytrash').classList.toggle('hide');
-    document.getElementById('trasharrow').classList.remove('hide');
-    document.getElementById('trashmargin').classList.remove('hide');
     document.getElementById('notes').classList.remove('notes-container-margin');
     document.getElementById('moveall').classList.remove('moveall-margin');
     clear();
@@ -88,17 +85,22 @@ function showTrash(){
 }
 
 function show(classlistarray){
-for (let i = 0; i < classlistarray.length; i++) {
+    for (let i = 0; i < classlistarray.length; i++) {
     let className = classlistarray[i];
     document.getElementById(className).classList.remove('hide');  
     }
 }
 
+function hide(classListArray){
+    for (let i = 0; i < classListArray.length; i++) {
+        let className = classListArray[i];
+        document.getElementById(className).classList.add('hide')
+    }
+}
+
 function backFromTrash(){
     show(['moveall', 'headline']);
-    document.getElementById('emptytrash').classList.add('hide');
-    document.getElementById('trasharrow').classList.add('hide');
-    document.getElementById('trashmargin').classList.add('hide');
+    hide(['emptytrash', 'trasharrow', 'trashmargin'])
     document.getElementById('moveall').classList.add('moveall-margin');
     clear();
     showNotes();
