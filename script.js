@@ -111,6 +111,10 @@ function animateInput(){
 
 function addNote(){
     let newNoteText = document.getElementById('text');
+    if(newNoteText.value==''){
+        document.getElementById('text').placeholder = 'Write a note here...!';
+        return
+    }
     animateInput();
     const random = Math.floor(Math.random() * 10 + 1);
     backgroundColors.push(random);
