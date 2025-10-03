@@ -21,10 +21,13 @@ function showNotes(){
             `;
    } }
 
+//    this function clears the notes board
+
    function clear(){
         document.getElementById('notes').innerHTML='';
    }
 
+// here is checked if the trash is empty, so that the trash icon is shown differently
    function checkIfTrashIsEmpty(){
         if(deletedNotes.length==0){
             document.getElementById('trash-icon-front').style.opacity = "0.25"
@@ -34,6 +37,8 @@ function showNotes(){
         }
    }
 
+
+//    this function shows the deleted notes
    function showDeleted(){
     clear();
     for (let i = deletedNotes.length -1; i > -1; i--) {
@@ -47,6 +52,7 @@ function showNotes(){
         </div>
              `;
     }}
+
 
  function deleteAll(){
     clear();
@@ -67,6 +73,7 @@ function deletePerma(position){
     setTimeout(showDeleted, 700);
 }
 
+
 function showTrash(){
     document.getElementById('inputbox').classList.add('hide');
     document.getElementById('moveall').classList.add('hide');
@@ -80,11 +87,16 @@ function showTrash(){
     showDeleted();
 }
 
+function show(classlistarray){
+for (let i = 0; i < classlistarray.length; i++) {
+    let className = classlistarray[i];
+    document.getElementById(className).classList.remove('hide');  
+    }
+}
+
 function backFromTrash(){
-    document.getElementById('moveall').classList.remove('hide');
-    document.getElementById('moveall').classList.remove('hide');
+    show(['moveall', 'headline']);
     document.getElementById('emptytrash').classList.add('hide');
-    document.getElementById('headline').classList.remove('hide')
     document.getElementById('trasharrow').classList.add('hide');
     document.getElementById('trashmargin').classList.add('hide');
     document.getElementById('moveall').classList.add('moveall-margin');
